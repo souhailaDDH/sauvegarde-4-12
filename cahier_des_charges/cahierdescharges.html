@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cahier des Charges - Site de Chat en Ligne</title>
+    <style>
+        /* Style global */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(120deg, #3498db, #8e44ad);
+            color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        /* Conteneur principal */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #ffffff;
+            color: #333;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+        }
+
+        /* En-tête principal */
+        h1 {
+            font-size: 3rem;
+            color: #8e44ad;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: #e74c3c;
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Sous-titres */
+        h2, h3 {
+            color: #3498db;
+            margin-bottom: 25px;
+            font-size: 2rem;
+            position: relative;
+        }
+
+        h2::before, h3::before {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 5px;
+            background: #8e44ad;
+            margin-bottom: 15px;
+            border-radius: 2px;
+        }
+
+        /* Paragraphes et listes */
+        p, ul {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 20px;
+        }
+
+        ul li::before {
+            content: "\f111";
+            font-family: FontAwesome;
+            position: absolute;
+            left: 0;
+            color: #e74c3c;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        ul li strong {
+            color: #2c3e50;
+        }
+
+        /* Section bonus */
+        .bonus {
+            background: #f4f6f9;
+            padding: 30px;
+            border-left: 8px solid #8e44ad;
+            margin-bottom: 50px;
+            border-radius: 10px;
+        }
+
+        /* Mise en forme des bonus */
+        .bonus h3 {
+            color: #e74c3c;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        /* Style du footer */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            color: #ddd;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #e74c3c;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Cahier des charges pour la création d'un site de chat en ligne</h1>
+
+        <h2>1. Introduction</h2>
+        <p>
+            Le projet consiste à créer un site web de chat en ligne, similaire à des plateformes comme Messenger ou WhatsApp, offrant une expérience utilisateur moderne et intuitive. Ce site vise à permettre la communication en temps réel entre utilisateurs, avec des fonctionnalités interactives et fluides pour un usage quotidien.
+        </p>
+        <p>
+            L'objectif est de proposer une solution de communication facile d'accès et flexible, adaptée aux utilisateurs individuels ainsi qu'aux entreprises cherchant une plateforme simple pour des échanges internes rapides. Ce document détaille les spécifications et les attentes relatives au projet pour s'assurer que le produit final réponde aux besoins.
+        </p>
+
+        <h2>2. Objectifs</h2>
+        <ul>
+            <li><strong>Communication instantanée :</strong> Permettre aux utilisateurs d'envoyer et de recevoir des messages textuels en temps réel.</li>
+            <li><strong>Multiplateforme :</strong> Garantir une compatibilité optimale sur divers appareils tels que les ordinateurs, tablettes et smartphones, avec une interface adaptable et responsive.</li>
+            <li><strong>Sécurité :</strong> Assurer un haut niveau de sécurité, avec un cryptage des données et des conversations pour protéger la confidentialité des échanges.</li>
+            <li><strong>Interface utilisateur :</strong> Créer une interface moderne, intuitive, simple à utiliser et visuellement agréable, inspirée des dernières tendances en matière de design d'expérience utilisateur.</li>
+        </ul>
+
+        <h2>3. Public cible</h2>
+        <p>
+            Le site est destiné à une large audience, incluant :
+        </p>
+        <ul>
+            <li>Les utilisateurs de réseaux sociaux, recherchant un moyen simple et rapide d'échanger avec des amis, la famille ou des collègues.</li>
+            <li>Les entreprises cherchant à mettre en place une solution de communication interne efficace pour améliorer la collaboration et l'échange d'informations.</li>
+        </ul>
+
+        <h2>4. Fonctionnalités</h2>
+
+        <h3>4.1. Fonctionnalités principales</h3>
+        <p>
+            Les fonctionnalités principales du site doivent répondre aux attentes des utilisateurs en termes de simplicité, rapidité et sécurité. Ces fonctionnalités incluent :
+        </p>
+        <ul>
+            <li><strong>Inscription et connexion :</strong> L'utilisateur doit pouvoir créer un compte en fournissant un email et un mot de passe. La gestion des mots de passe doit être sécurisée (ex : validation de la complexité des mots de passe).</li>
+            <li><strong>Messagerie instantanée :</strong>
+                <ul>
+                    <li>Envoi et réception de messages en temps réel, avec synchronisation instantanée entre les utilisateurs.</li>
+                    <li>Indicateurs de lecture des messages (permettant de savoir si un message a été lu par le destinataire).</li>
+                    <li>Support pour l'envoi et la réception de fichiers, tels que des images, vidéos ou documents.</li>
+                    <li>Possibilité d'ajouter des émoticônes et des réactions aux messages reçus.</li>
+                </ul>
+            </li>
+            <li><strong>Gestion des contacts :</strong>
+                <ul>
+                    <li>Fonctionnalité d'ajout et de suppression de contacts, avec une gestion intuitive de la liste d'amis.</li>
+                    <li>Possibilité de créer et gérer des groupes de discussion pour faciliter les échanges en groupe.</li>
+                    <li>Outil de recherche de contacts pour faciliter l'ajout d'utilisateurs dans les discussions.</li>
+                </ul>
+            </li>
+            <li><strong>Notifications :</strong> Notifications en temps réel pour alerter les utilisateurs de nouveaux messages ou d'autres événements importants (ex: invitations à un groupe, ajout en tant qu'ami).</li>
+        </ul>
+
+        <div class="bonus">
+            <h3>Bonus</h3>
+            <p>En plus des fonctionnalités de base, des options supplémentaires peuvent être envisagées pour enrichir l'expérience utilisateur :</p>
+            <ul>
+                <li><strong>Thèmes et personnalisation :</strong> Les utilisateurs pourront personnaliser l'apparence de l'interface avec des thèmes visuels variés.</li>
+                <li><strong>Mode sombre :</strong> L'ajout d'un mode sombre permettra une utilisation confortable de l'interface dans des conditions de faible luminosité.</li>
+                <li><strong>Support multilingue :</strong> Le site sera disponible en plusieurs langues, garantissant une accessibilité internationale.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 - Cahier des Charges pour la Création d'un Site de Chat en Ligne | Conception par <a href="#">Souhaila Didouh</a></p>
+    </footer>
+</body>
+
+</html>

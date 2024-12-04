@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Donjon et le dragon</title>
+  
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+  <h1 id="titre">Donjon et le dragon</h1>
+  <p><input id="chevalier" name="chevalier" value="" placeholder="Nom du chevalier" /></p>
+  <p><input id="dragon" name="dragon" placeholder="Nom du dragon" /></p>
+  <p><button id="combat" onCLick="combat()">Combat</button></p>
+  <p><button id="Guerre" onCLick="guerre()">Guerre</button></p>
+  <p>Le gagnant est : <winner id="winner"></winner></p>
+  <p>le nombre de coups et : <tour id="tour"></tour></p>
+  <p>Le <loser id="loser"></loser> perd <degat id=degat></degat> vie(s)</p>
+  <p><img src="istockphoto-153243835-612x612.jpg" width="100" id="hero"></p>
+  <p><img src="images.jpeg" width="100" id="eliott"></p>
+  <table>
+      <tr>
+          <th>Dés</th>
+          <th>0</th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+          <th>6</th>
+          <th>7</th>
+          <th>8</th>
+          <th>9</th>
+          <th>10</th>
+      </tr>
+      <tr>
+          <th>Nb fois</th>
+          <td id=0>0</td>
+          <td id=1>0</td>
+          <td id=2>0</td>
+          <td id=3>0</td>
+          <td id=4>0</td>
+          <td id=5>0</td>
+          <td id=6>0</td>
+          <td id=7>0</td>
+          <td id=8>0</td>
+          <td id=9>0</td>
+          <td id=10>0</td>
+      </tr>
+  </table>
+  
+  <script>
+      var dragonVie=20;
+      var chevalierVie=18;
+      var tour = 0;
+      
+      function combat() {
+          var degat=lancerDe(3,5);
+          var gagnant=lancerDe(1,2);
+          var loser=document.getElementById("loser");
+          var degatElement=document.getElementById("degat").innerHTML=degat;
+          var chevalier=document.getElementById("chevalier").value;
+          var dragon=document.getElementById("dragon").value;
+          var winner= document.getElementById("winner");
+          var coups = document.getElementById("tour");
+          var hero = document.getElementById("hero");
+          var eliott = document.getElementById("eliott");
+
+          if (gagnant==1) {
+            winner.innerHTML= chevalier;
+            dragonVie -= degat;
+            loser.innerHTML= dragon;
+            coups.innerHTML = tour;
+            eliott.style.display ='none'; 
+            hero.style.display = 'block';           
+          }
+          else {
+            winner.innerHTML=dragon;
+            chevalierVie -= degat;
+            loser.innerHTML=chevalier;
+            coups.innerHTML = tour;
+            hero.style.display ='none';
+            eliott.style.display ='block';
+
+          }
+      }
+      function guerre() {
+        dragonVie=20;
+        chevalierVie=18;
+        tour = 0;
+        while (dragonVie >0 && chevalierVie >0){
+          combat();
+          tour++;
+          console.log(dragonVie, chevalierVie);
+        }
+      
+      }
+      
+    let result=[0,0,0,0,0,0,0,0,0,0,0];
+      
+      function clique() {
+          for(var i=0;i<100;i++) {
+              result[lancerDe(1,10)]++;
+          }   
+          //Affichage du resultata dans le DOM
+          result.forEach(function(item,index,tab){
+              var nbCoup= document.getElementById(index);
+              nbCoup.innerHTML=item;
+              console.log(index,item);
+          })
+          //console.log(result);
+          
+          
+      }
+      function lancerDe(min, max) {
+        return Math.round(Math.random()*(max-min))+min;
+      }
+
+      
+  </script>
+</body>
+</html>

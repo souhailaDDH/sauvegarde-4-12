@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Fetch API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #response {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test de la méthode Fetch</h1>
+    <p>Cliquez sur le bouton pour envoyer une requête GET à une API.</p>
+    <button id="fetchButton">Envoyer une requête</button>
+    <div id="response">
+        <h2>Réponse :</h2>
+        <pre id="output">Aucune réponse pour le moment.</pre>
+    </div>
+
+    <script>
+        document.getElementById("fetchButton").addEventListener("click", () => {
+            const url = "https://jsonplaceholder.typicode.com/posts/1"; // API publique pour tester
+            
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Erreur HTTP ! Statut : ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById("output").textContent = JSON.stringify(data, null, 2);
+                })
+                .catch(error => {
+                    document.getElementById("output").textContent = `Erreur : ${error.message}`;
+                });
+        });
+    </script>
+</body>
+</html>

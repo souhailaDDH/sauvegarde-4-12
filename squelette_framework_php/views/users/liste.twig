@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block stylesheet %}
+{% endblock %}
+
+
+{% block body %}
+    <h1>Liste des utilisateurs</h1>
+
+    <table id="users" class="display compact">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Ville</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.nom }}</td>
+                    <td>{{ user.prenom }}</td>
+                    <td>{{ user.ville.nom }}</td>
+                    <td>
+                        <a href="?c=users&t=edit&id={{user.id}}"><button>Modifier</button></a>
+                        <button>Supprimer</button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}
+{% block script %}
+
+<script>
+
+    let table = new DataTable('#users',{
+        layout: {
+        topStart: {
+            buttons: [
+                {
+                    text: 'Créer un user',
+                    action: function (e, dt, node, config) {
+                       // console.log(e,node);
+                        location.href="?c=user&t=create";
+                    }
+                }
+            ]
+        }
+    }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,122 @@
+.body {
+    background-color: cyan;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+    text-align: justify;
+    margin-left: 200px;
+    margin-right: 200px;
+ }
+ 
+ .titre {
+    font-family: 'Times New Roman', Times, serif;
+    font-size:xx-large;
+    color: black;
+    text-align: center;
+    border-color: black;
+    border-style:dashed;
+    width: 600px;
+    margin: auto;
+    margin-top: 20px;
+ }
+
+ .message1 {
+    background-color:burlywood;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:xx-large;
+    color: black;
+    text-align: center;
+    border-color: black;
+    border-style:dashed;
+    width: 600px;
+    margin: auto;
+    margin-top: 20px;
+    display: none;
+ }
+
+ .message2 {
+    background-color:coral;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:xx-large;
+    color: black;
+    text-align: center;
+    border-color: black;
+    border-style:dashed;
+    width: 600px;
+    margin: auto;
+    margin-top: 20px;
+    display: none;
+ }
+
+ .message3 {
+    background-color: chocolate;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:xx-large;
+    color: black;
+    text-align: center;
+    border-color: black;
+    border-style:dashed;
+    width: 600px;
+    margin: auto;
+    margin-top: 20px;
+    display: none;
+ }
+
+ #instruction {
+    text-align: center;
+    color:crimson;
+    font-variant: small-caps;
+ }
+
+ .message1b {
+    background-color:burlywood;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:xx-large;
+    color: black;
+    text-align: center;
+    border-color: black;
+    border-style:dashed;
+    width: 600px;
+    margin: auto;
+    margin-top: 20px;
+ }
+
+ .message2b {
+    background-color:coral;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:xx-large;
+    color: black;
+    text-align: center;
+    border-color: black;
+    border-style:dashed;
+    width: 600px;
+    margin: auto;
+    margin-top: 20px;
+ }
+
+ .message3b {
+    background-color: chocolate;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:xx-large;
+    color: black;
+    text-align: center;
+    border-color: black;
+    border-style:dashed;
+    width: 600px;
+    margin: auto;
+    margin-top: 20px;
+ }
+
+ .image {
+  width:500px;
+  height:250px;
+  border-color: black;
+  border-style: solid; 
+  text-align:center;
+  margin: auto;
+  display:flex;
+ }
+
+ #image {
+   text-align: center;
+   display:none;
+ }

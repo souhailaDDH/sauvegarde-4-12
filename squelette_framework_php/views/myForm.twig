@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %} <title>mypage</title>{% endblock %}
+
+{% block stylesheet %}
+{% endblock %}
+
+
+{% block body %}
+    <form action='?c=test&t=recData' method="post" >
+        
+        <input type='text' name='nom'>
+        <button type='submit'>Envoyer</button>
+    </form>
+    
+	 <div class="container">
+        <img src="https://media.licdn.com/dms/image/D4D03AQE_9JJgFtqfmQ/profile-displayphoto-shrink_800_800/0/1675609443999?e=1722470400&v=beta&t=iMixwAes2qftTMJcuj_Ytf92rALofHWP-EP_popNnF4" alt="Photo de profil">
+        <h1>A propos de moi</h1>
+        <p>Bonjour, je m'appelle Souhaila. Je suis en BTS SIO SLAM à interfor en alternance chez Médiamétrie à Amiens. J'aime le codage, la mode, le maquillage.</p>
+        <div class="contact-info">
+            <p>Email: souhailadidouh05@gmail.com</p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/souhaila-didouh-bb2a09262/" target="_blank">Mon LinkedIn</a></p>
+        </div>
+    </div>
+	<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+        }
+        img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+        }
+        h1 {
+            color: #333;
+            margin-top: 20px;
+        }
+        p {
+            color: #666;
+        }
+        .contact-info {
+            margin-top: 20px;
+        }
+        .contact-info a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        </style>
+{% endblock %}
+
+    
+

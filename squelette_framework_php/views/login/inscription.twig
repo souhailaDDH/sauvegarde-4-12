@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block stylesheet %}
+
+{% endblock %}
+
+
+{% block body %}
+    <h1  style="text-align:center">Création d'un utilisateur</h1>
+    <div id="loginForm">
+        <form action="?c=login&t=create" method="post">
+            <div>Nom : <input name="nom"></div>
+            <div>Prénom : <input name="prenom"></div>
+            <div>Identifiant : <input name="ident"></div>
+            <div>Mot de passe : <input type="password" name="password"></div>
+            <div><button type="submit">Envoyer</button></div>
+        </form>
+    </div> 
+    
+    <style>
+        #loginForm {
+            text-align: center;
+           
+        }
+        #loginForm div {
+            padding: 10px;
+        }
+    </style>
+{% endblock %}

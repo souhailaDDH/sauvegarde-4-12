@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy birthday my love <3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            background-color: black;
+            overflow: hidden;
+        }
+        .slides {
+            display: none;
+            padding: 20px;
+            text-align: center;
+        }
+        .slides img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+        }
+        .text-overlay {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            margin-top: 10px;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 16px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 18px;
+            transition: background 0.3s;
+        }
+        .next {
+            right: 20px;
+        }
+        .prev {
+            left: 20px;
+        }
+        .prev:hover, .next:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        .dot-container {
+            text-align: center;
+            padding: 20px 0;
+        }
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            margin: 0 5px;
+            display: inline-block;
+            background: red;
+            transition: background 0.3s;
+        }
+        .active, .dot:hover {
+            background: #717171;
+        }
+        /* Heart Animation */
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px);
+                opacity: 0;
+            }
+        }
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            transform: rotate(-45deg);
+            animation: float 3s linear infinite;
+            opacity: 0;
+        }
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+        }
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+        .heart::after {
+            left: 10px;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="slides">
+        <img src="./img/1ere_photo.JPG" alt="Slide 1">
+        <div class="text-overlay">
+            Pour commencer joyeux anniversaire mon Homme, dommage que cela soit tombé pendant les examens.
+            Je sais pas si tu souviens de cette image elle date tellement dire que cela fait déjà 3 ans, nous avons traversé tellement en 3 ans
+            et je ne cesserais de te remercier pour tout ça. Dire que après cette image une période assez sombre est passée mais on ne s'est pas lâchés
+            et ce n'est que le début. Je garderai toujours cette photo pour me rappeler de notre évolution. 
+            Tu peux swipe à la prochaine ;)
+        </div>
+    </div>
+
+    <div class="slides">
+        <img src="./img/3eme_photo.JPG" alt="Slide 2">
+        <div class="text-overlay">
+            Comment ne pas parler de ce jour qui était incroyable pour moi, notre premier "voyage" ensemble, 
+            notre premier dodo ensemble, et un hôtel assez sympathique si tu vois ce que je veux dire :)
+            J'étais très contente de faire de faire cette journée avec toi car elle était symbole de liberté, enfin !!
+            Je lagarderai toujours en mémoire et me dirais que c'est grâce à toi que j'ai réussi à partir aujourd'hui.
+            Je voulais parler de Londres aussi que je n'ai pas mis en photo pour que cela ne soit pas trop long, mais c'était incroyable aussi ! 
+            Inchallah bientôt le Maroc, mais pour cela, il faut que tu remarches vite :)
+            Swipe à la dernière --->
+        </div>
+    </div>
+
+    <div class="slides">
+        <img src="./img/4eme_photo_bis.JPG" alt="Slide 3">
+        <div class="text-overlay">
+            Enfin l'une des plus belles photos que l'on ait faites, pour revenir à l'accident, je t'en ai voulu un 
+            certain temps mais maintenant la seule chose que je demande c'est que tu guérisses et que tu redeviennes l'homme que j'avais avant, 
+            l'hôpital nous a bien rapprochés même si c'était très dur, je me dis que c'était une épreuve de plus pour savoir si notre couple allait 
+            tenir et c'est le cas. Sache que je t'aime plus que tout même si parfois je ne veux pas faire de bisous OUPSI mais ne m'en veux pas 
+            je t'aime très très fort et je souhaite que tu te rétablisses vite pour reprendre notre aventure ensemble. 
+            À tes 23 ans mon homme JE T'AIME !
+        </div>
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<div class="dot-container">
+    <span class="dot" onclick="currentSlide(1)"></span> 
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+<!-- Heart Animation Container -->
+<div id="hearts-container"></div>
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let slides = document.getElementsByClassName("slides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+
+    // Heart Animation
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.left = `${Math.random() * 100}%`;
+        heart.style.animationDuration = `${Math.random() * 2 + 3}s`;
+        document.getElementById('hearts-container').appendChild(heart);
+        setTimeout(() => heart.remove(), 5000);
+    }
+
+    function launchHearts() {
+        setInterval(createHeart, 300);
+    }
+
+    // Delay launching hearts to ensure user has entered the page
+    window.onload = function() {
+        launchHearts();
+    }
+</script>
+
+</body>
+</html>
+

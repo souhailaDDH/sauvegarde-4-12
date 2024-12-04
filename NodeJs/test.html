@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo">
+  <h2>Remplis le formulaire pour envoyer des donnees via AJAX</h2>
+  <form id="userForm">
+    <label for="name">Nom :</label>
+    <input type="text" id="name" name="name"><br><br>
+    <label for="email">Email :</label>
+    <input type="email" id="email" name="email"><br><br>
+    <button type="button" onclick="sendData()">Envoyer</button>
+  </form>
+</div>
+
+<script type="text/javascript">
+function sendData() {
+  // Récupérer les valeurs du formulaire
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+
+  // Créer un objet de données
+  const data = JSON.stringify({ name: name, email: email });
+
+  const xhttp = new XMLHttpRequest();
+  
+  
+  // Configurer la requête AJAX
+  xhttp.open("POST", "http://185.213.22.50/souhaila/html/my_project/public/index.php/user", true);
+  xhttp.setRequestHeader("Content-Type", "application/json"); // Indiquer que les données sont au format JSON
+  xhttp.send(data); // Envoyer les données JSON
+}
+</script>
+
+</body>
+</html>

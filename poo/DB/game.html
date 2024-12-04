@@ -1,0 +1,87 @@
+
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>MasterMind</title>
+  
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+    <h1>MasterMind</h1>
+    <button id="genPions">Generer les pions</button>
+    <table>
+        <tr id="rowToFind">
+            
+           
+        </tr>
+    </table>
+    <div id="pionsDispo" style="float:right">
+        
+       
+    </div>
+    <p></p>
+    <script>
+      $("#genPions").on("click",function(){
+          $("#pionsDispo").empty();
+          genPions();
+      });
+      function genPions() {
+          let colors=["red","green","yellow","magenta","aqua","steelblue","navy","chocolat","silver","pink"];
+          
+          for(i=1;i<11;i++) {
+              let j=(i-1)*3;
+              let color=colors[i-1];
+              $("#pionsDispo").append("<div class='cercle' style='background:"+color+"'></div>");
+          }
+          $(".cercle").draggable({
+            revert : 'invalid',
+            snap : '.toFind'
+        });
+      }
+      $(document).ready(function(){
+          console.log("Le documenent est pret");
+          //Création des pions de couleur
+          
+          genPions();
+          for(i=1;i<9;i++){
+              $("#rowToFind").append("<td><div class='toFind'></div></td>");
+          }
+          
+      });
+      $( function() {
+        $(".cercle").draggable({
+            revert : 'invalid',
+            snap : '.toFind'
+        });
+        
+        $(".toFind").droppable({
+            classes: {
+                "ui-droppable": "highlight"
+            },
+            accept: '.cercle',
+            drop: function( event, ui ) {
+                console.log(ui);
+                $(this).droppable({accept:''});
+                if($(this).hasClass('plein')) {
+                    console.log ("plein");
+                    
+                    
+                    
+                };
+                $(this)
+                  .addClass( "plein" )
+                  
+                  .removeClass ("cercle")
+                  .find( "p" )
+                    .html( "Dropped!" );
+            },
+            disable: true,
+        })
+      });
+  </script>
+</body>
+</html>
